@@ -8,7 +8,7 @@ MODEL = "openchat/openchat-7b"
 HEADERS = {
     "Authorization": f"Bearer {OPENROUTER_API_KEY}",
     "Content-Type": "application/json",
-    "Referer": "https://fynd-ai-intern-assignment.streamlit.app",
+    "Referer": "https://fynd-ai-user.streamlit.app",
     "X-Title": "Fynd AI Intern Take Home Assignment",
     "User-Agent": "Fynd-ai-intern-assignment/1.0"
 }
@@ -73,6 +73,7 @@ Guidelines:
 - Contradictory signals → medium priority
 """
     return call_llm(prompt)
+
 
 
 
