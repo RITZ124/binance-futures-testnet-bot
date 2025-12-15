@@ -1,17 +1,22 @@
 import requests
 import os
 import streamlit as st
+import requests
+import streamlit as st
+
 OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-MODEL = "openchat/openchat-7b"
+MODEL = "meta-llama/llama-3-8b-instruct:free"
 
 HEADERS = {
     "Authorization": f"Bearer {OPENROUTER_API_KEY}",
     "Content-Type": "application/json",
     "Referer": "https://fynd-ai-user.streamlit.app",
     "X-Title": "Fynd AI Intern Take Home Assignment",
-    "User-Agent": "Fynd-ai-intern-assignment/1.0"
+    "User-Agent": "Fynd-AI-Intern/1.0"
 }
+
 
 
 def call_llm(prompt):
@@ -73,6 +78,7 @@ Guidelines:
 - Contradictory signals → medium priority
 """
     return call_llm(prompt)
+
 
 
 
