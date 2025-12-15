@@ -78,5 +78,25 @@
     "action_reason": "The customer expressed dissatisfaction with the food quality. It is important to address this issue promptly to maintain customer satisfaction and prevent further negative feedback.",
     "priority_score": 90,
     "timestamp": "2025-12-15 13:35:55.998078"
+  },
+  {
+    "rating": 3,
+    "review": "good",
+    "ai_response": "Dear Customer,\n\nThank you for taking the time to rate and review our service with a 3 out of 5 stars. We appreciate your feedback as it helps us improve.\n\nWe're pleased to see that you found our service 'good'. However, since your rating seems lower than your positive review, we'd love to better understand where we may have fallen short of your expectations. Your constructive feedback will help us address any issues and ensure a better experience next time.\n\nPlease feel free to share more details about your experience, and we'll do our best to assist you further.\n\nBest Regards,\n[Your Name]\n[Your Position]\nCustomer Support Team",
+    "consistency": "Ambiguous",
+    "action_category": "No Action Needed",
+    "action_reason": "The customer used the word 'good', which is a positive but vague feedback. It doesn't indicate any specific issue or improvement needed.",
+    "priority_score": 20,
+    "timestamp": "2025-12-15 15:01:31.742066"
+  },
+  {
+    "rating": 3,
+    "review": "good",
+    "ai_response": "Dear Customer,\n\nThank you for taking the time to rate our service and provide a review. I'm pleased to see that you've rated us as 'good', however, it seems there might be a slight discrepancy between your rating and your comment, as 'good' typically implies a positive experience. Could you please clarify your feedback so we can better understand your experience and serve you more effectively in the future?\n\nWe value your opinion and are committed to continuous improvement. If there was anything specific that didn't meet your expectations, we would appreciate it if you could share this information with us.\n\nThank you once again for your valuable feedback!\n\nBest Regards,\n[Your Name]\n[Company Name] Customer Support Team",
+    "consistency": "Ambiguous",
+    "action_category": "No Action Needed",
+    "action_reason": "The term 'good' can be interpreted positively, but it is not specific enough to require immediate action. It's a general term that may not highlight any particular area of improvement or praise.",
+    "priority_score": 30,
+    "timestamp": "2025-12-15 20:40:57.807587"
   }
 ]

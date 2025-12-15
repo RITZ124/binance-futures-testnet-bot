@@ -1,20 +1,47 @@
 import requests
+import os
+import streamlit as st
+import requests
+import streamlit as st
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL = "mistral"
+OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+MODEL = "mistralai/devstral-2512:free"
+
+HEADERS = {
+    "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+    "Content-Type": "application/json",
+    "Referer": "https://fynd-ai-user.streamlit.app",
+    "X-Title": "Fynd AI Intern Take Home Assignment",
+    "User-Agent": "Fynd-AI-Intern/1.0"
+}
+
+
 
 def call_llm(prompt):
     try:
         payload = {
             "model": MODEL,
-            "prompt": prompt,
-            "stream": False
+            "messages": [
+                {"role": "user", "content": prompt}
+            ],
+            "temperature": 0.3
         }
-        response = requests.post(OLLAMA_URL, json=payload, timeout=8)
+
+        response = requests.post(
+            OPENROUTER_URL,
+            headers=HEADERS,
+            json=payload,
+            timeout=30
+        )
+
         response.raise_for_status()
-        return response.json()["response"].strip()
-    except Exception:
-        return "AI service unavailable (local LLM not running)."
+        return response.json()["choices"][0]["message"]["content"].strip()
+
+    except Exception as e:
+        return f"AI service unavailable: {str(e)}"
+
 
 
 def analyze_feedback(review, rating):
@@ -51,3 +78,20 @@ Guidelines:
 - Contradictory signals → medium priority
 """
     return call_llm(prompt)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
