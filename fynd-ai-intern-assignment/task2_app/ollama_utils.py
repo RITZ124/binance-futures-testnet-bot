@@ -9,7 +9,8 @@ HEADERS = {
     "Authorization": f"Bearer {OPENROUTER_API_KEY}",
     "Content-Type": "application/json",
     "Referer": "https://fynd-ai-intern-assignment.streamlit.app",
-    "X-Title": "Fynd AI Intern Take Home Assignment"
+    "X-Title": "Fynd AI Intern Take Home Assignment",
+    "User-Agent": "Fynd-AI-Intern-Assignment/1.0"
 }
 
 
@@ -27,7 +28,7 @@ def call_llm(prompt):
             OPENROUTER_URL,
             headers=HEADERS,
             json=payload,
-            timeout=20
+            timeout=30
         )
 
         response.raise_for_status()
@@ -35,6 +36,7 @@ def call_llm(prompt):
 
     except Exception as e:
         return f"AI service unavailable: {str(e)}"
+
 
 
 def analyze_feedback(review, rating):
@@ -71,6 +73,7 @@ Guidelines:
 - Contradictory signals → medium priority
 """
     return call_llm(prompt)
+
 
 
 
