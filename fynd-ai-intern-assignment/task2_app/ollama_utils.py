@@ -1,17 +1,17 @@
 import requests
 import os
-
-OPENROUTER_API_KEY = os.getenv("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")
+OPENROUTER_API_KEY = st.secrets.get("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", None)
+import streamlit as st
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 MODEL = "mistralai/mistral-7b-instruct"
 
 HEADERS = {
     "Authorization": f"Bearer {OPENROUTER_API_KEY}",
     "Content-Type": "application/json",
-    # REQUIRED by OpenRouter
     "HTTP-Referer": "https://fynd-ai-intern-assignment.streamlit.app",
     "X-Title": "Fynd AI Intern Take Home Assignment"
 }
+
 
 def call_llm(prompt):
     if not OPENROUTER_API_KEY:
@@ -78,6 +78,7 @@ Guidelines:
 - Contradictory signals → medium priority
 """
     return call_llm(prompt)
+
 
 
 
